@@ -155,6 +155,217 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-剑指offer笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/26/%E5%89%91%E6%8C%87offer%E7%AC%94%E8%AE%B0/">剑指offer</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/26/%E5%89%91%E6%8C%87offer%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2020-02-25T17:37:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>package com.company.test1;
+
+/**
+ * 题目描述
+ * 在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从
+ * 上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+ */
+public class FindFromArray {
+    public static void main(String[] args) {
+        int array[][] = {{1, 2, 4}};
+        int arr[] = {1, 2, 3, 4};
+        System.out.println(findByHalf(4, arr));
+        System.out.println(find1(4, array));
+    }
+
+    //穷举法
+    public static boolean find(int target, int[][] array) {
+        boolean flag = false;
+        for (int i = 0; i &lt; array.length; i++) {
+            for (int j = 0; j &lt; array[i].length; j++) {
+                if (array[i][j] == target) {
+                    flag = true;
+                } else {
+                    flag = false;
+                }
+                if (flag) break;
+            }
+            if (flag) break;
+        }
+        return flag;
+    }
+
+    //折半法
+    public static boolean find1(int target, int[][] array) {
+        boolean flag = false;
+        for (int i = 0; i &lt; array.length; i++) {
+            flag = findByHalf(target, array[i]);
+            if (flag) break;
+        }
+        return flag;
+    }
+
+    //折半查找
+    public static boolean findByHalf(int target, int array[]) {
+
+        int low = 0;
+        int high = array.length - 1;
+        int mid;
+        while (low &lt;= high) {
+            mid = (low + high) / 2;
+            if (target &lt; array[mid]) {
+                high = mid - 1;
+            }
+            if (target &gt; array[mid]) {
+                low = mid + 1;
+            }
+            if (target == array[mid]) {
+                return true;
+            }
+
+        }
+        return false;
+    }
+}</code></pre><hr>
+<hr>
+<pre><code>package com.company.test2;
+
+/**
+ * 请实现一个函数，将一个字符串中的每个空格替换成“%20”。
+ * 例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
+ */
+public class UpdateString {
+    public static void main(String[] args) {
+        StringBuffer str = new StringBuffer(&quot;We Are Happy&quot;);
+        String s = str.toString();
+        String w = s.replace(&quot;W&quot;, &quot;&quot;);
+        System.out.println(w);
+        System.out.println(replaceSpace(str));
+    }
+
+    public static String replaceSpace(StringBuffer str) {
+        String st = str.toString();
+        st = st.replace(&quot; &quot;, &quot;20%&quot;);
+        return st;
+    }
+
+}</code></pre><hr>
+<hr>
+<pre><code>package com.company.test3;
+
+public class ListNode {
+    int val;
+    ListNode next = null;
+
+    ListNode(int val) {
+        this.val = val;
+    }
+}
+package com.company.test3;
+
+import java.util.ArrayList;
+
+/**
+ * 题目描述
+ * 输入一个链表，按链表从尾到头的顺序返回一个ArrayList。
+ */
+public class LinkList {
+    public static void main(String[] args) {
+        ListNode listNode = new ListNode(10);
+        listNode.next = new ListNode(20);
+        ArrayList&lt;Integer&gt; integerArrayList = printListFromTailToHead(listNode);
+        for (int i = 0; i &lt; integerArrayList.size(); i++) {
+            System.out.println(integerArrayList.get(i));
+        }
+    }
+
+    public static ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) {
+        ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();
+        while (listNode != null) {
+            list.add(listNode.val);
+            if (listNode.next == null)
+                break;
+            listNode = listNode.next;
+        }
+        if (!list.isEmpty()) {
+            for (int i = list.size() - 1; i &gt;= 0; i--) {
+                int temp = list.get(i);
+                list.remove(i);
+                list.add(temp);
+            }
+
+        }
+        return list;
+    }
+}</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/26/%E5%89%91%E6%8C%87offer%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-day11【网络编程】】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -926,93 +1137,6 @@
 
 
   
-    <article id="post-day01【Object类、常用API】-笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/27/day01%E3%80%90Object%E7%B1%BB%E3%80%81%E5%B8%B8%E7%94%A8API%E3%80%91-%E7%AC%94%E8%AE%B0/">Object类、常用API</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/27/day01%E3%80%90Object%E7%B1%BB%E3%80%81%E5%B8%B8%E7%94%A8API%E3%80%91-%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-01-27T09:18:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="【Object类、常用API】"><a href="#【Object类、常用API】" class="headerlink" title="【Object类、常用API】"></a>【Object类、常用API】</h1><h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><ul>
-<li>Object类</li>
-<li>Date类</li>
-<li>DateFormat类</li>
-<li>Calendar类</li>
-<li>System类</li>
-<li>StringBuilder类</li>
-<li>包装类<h2 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h2>
-        
-          <a class="article-more-a" href="/2020/01/27/day01%E3%80%90Object%E7%B1%BB%E3%80%81%E5%B8%B8%E7%94%A8API%E3%80%91-%E7%AC%94%E8%AE%B0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Object类</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">常用API</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/27/day01%E3%80%90Object%E7%B1%BB%E3%80%81%E5%B8%B8%E7%94%A8API%E3%80%91-%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1203,6 +1327,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
             
             <div class="clearfix"></div>
