@@ -175,10 +175,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这里是我的笔记</p>
-        
-          <a class="article-more-a" href="/2020/02/26/%E5%89%91%E6%8C%87offer%E7%AC%94%E8%AE%B0/#more">more >></a>
-        
+        <a id="more"></a>
+
+<p>这里是我的笔记</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.company.test1;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 题目描述</span></span><br><span class="line"><span class="comment"> * 在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从</span></span><br><span class="line"><span class="comment"> * 上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FindFromArray</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> array[][] = &#123;&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>&#125;&#125;;</span><br><span class="line">        <span class="keyword">int</span> arr[] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</span><br><span class="line">        System.out.println(findByHalf(<span class="number">4</span>, arr));</span><br><span class="line">        System.out.println(find1(<span class="number">4</span>, array));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//穷举法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> target, <span class="keyword">int</span>[][] array)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array[i].length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (array[i][j] == target) &#123;</span><br><span class="line">                    flag = <span class="keyword">true</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    flag = <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (flag) <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (flag) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> flag;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//折半法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">find1</span><span class="params">(<span class="keyword">int</span> target, <span class="keyword">int</span>[][] array)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            flag = findByHalf(target, array[i]);</span><br><span class="line">            <span class="keyword">if</span> (flag) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> flag;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//折半查找</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">findByHalf</span><span class="params">(<span class="keyword">int</span> target, <span class="keyword">int</span> array[])</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> high = array.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">            mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (target &lt; array[mid]) &#123;</span><br><span class="line">                high = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (target &gt; array[mid]) &#123;</span><br><span class="line">                low = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (target == array[mid]) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.company.test2;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 请实现一个函数，将一个字符串中的每个空格替换成“%20”。</span></span><br><span class="line"><span class="comment"> * 例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UpdateString</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        StringBuffer str = <span class="keyword">new</span> StringBuffer(<span class="string">"We Are Happy"</span>);</span><br><span class="line">        String s = str.toString();</span><br><span class="line">        String w = s.replace(<span class="string">"W"</span>, <span class="string">""</span>);</span><br><span class="line">        System.out.println(w);</span><br><span class="line">        System.out.println(replaceSpace(str));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">replaceSpace</span><span class="params">(StringBuffer str)</span> </span>&#123;</span><br><span class="line">        String st = str.toString();</span><br><span class="line">        st = st.replace(<span class="string">" "</span>, <span class="string">"20%"</span>);</span><br><span class="line">        <span class="keyword">return</span> st;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.company.test3;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    ListNode next = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    ListNode(<span class="keyword">int</span> val) &#123;</span><br><span class="line">        <span class="keyword">this</span>.val = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">package</span> com.company.test3;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 题目描述</span></span><br><span class="line"><span class="comment"> * 输入一个链表，按链表从尾到头的顺序返回一个ArrayList。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkList</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ListNode listNode = <span class="keyword">new</span> ListNode(<span class="number">10</span>);</span><br><span class="line">        listNode.next = <span class="keyword">new</span> ListNode(<span class="number">20</span>);</span><br><span class="line">        ArrayList&lt;Integer&gt; integerArrayList = printListFromTailToHead(listNode);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; integerArrayList.size(); i++) &#123;</span><br><span class="line">            System.out.println(integerArrayList.get(i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ArrayList&lt;Integer&gt; <span class="title">printListFromTailToHead</span><span class="params">(ListNode listNode)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        <span class="keyword">while</span> (listNode != <span class="keyword">null</span>) &#123;</span><br><span class="line">            list.add(listNode.val);</span><br><span class="line">            <span class="keyword">if</span> (listNode.next == <span class="keyword">null</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            listNode = listNode.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!list.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = list.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">                <span class="keyword">int</span> temp = list.get(i);</span><br><span class="line">                list.remove(i);</span><br><span class="line">                list.add(temp);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -255,11 +265,71 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Mysql总结"><a href="#Mysql总结" class="headerlink" title="Mysql总结"></a>Mysql总结</h1><h2 id="第一章【了解SQL】"><a href="#第一章【了解SQL】" class="headerlink" title="第一章【了解SQL】##"></a>第一章【了解SQL】##</h2><p>1.数据库是一个以某种有组织的方式存储的数据集合。<br>2.唯一标识表中每行的这个列称为主键。具有唯一性和非空性。<br>3.SQL是结构化查询语言是专门用来与数据库通信的语言。</p>
+        <a id="more"></a>
+
+<h1 id="Mysql总结"><a href="#Mysql总结" class="headerlink" title="Mysql总结"></a>Mysql总结</h1><h2 id="第一章【了解SQL】"><a href="#第一章【了解SQL】" class="headerlink" title="第一章【了解SQL】##"></a>第一章【了解SQL】##</h2><p>1.数据库是一个以某种有组织的方式存储的数据集合。<br>2.唯一标识表中每行的这个列称为主键。具有唯一性和非空性。<br>3.SQL是结构化查询语言是专门用来与数据库通信的语言。</p>
 <h2 id="第二章【MySql简介】"><a href="#第二章【MySql简介】" class="headerlink" title="第二章【MySql简介】"></a>第二章【MySql简介】</h2><p>1.mysql是一种DBMS（数据库管理系统），是一种数据库软件。<br>2.使用命令行的方式或图形界面的方式操作数据库。</p>
-        
-          <a class="article-more-a" href="/2020/01/09/mysql-notes/#more">more >></a>
-        
+<h2 id="第三章【使用MySql】"><a href="#第三章【使用MySql】" class="headerlink" title="第三章【使用MySql】"></a>第三章【使用MySql】</h2><p>1.选择数据库</p>
+<pre><code>use 数据库名;</code></pre><p>2.获取可用数据库的一个列表</p>
+<pre><code>show databases;</code></pre><p>3.获取一个数据库内的表的列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show tables;</span><br></pre></td></tr></table></figure>
+
+<p>4.查看表结构</p>
+<pre><code>show columns from 表名;
+或者
+describe 表名;</code></pre><p>5.显示广泛服务器状态信息</p>
+<pre><code>show status;</code></pre><p>6.查看创建特定数据库的mysql语句</p>
+<pre><code>show create database 数据库名;</code></pre><p>7.查看创建特定表的mysql语句</p>
+<pre><code>show create table 表名;</code></pre><p>8.查看更多允许的show语句</p>
+<pre><code>help show;</code></pre><h2 id="第四章【检索数据】"><a href="#第四章【检索数据】" class="headerlink" title="第四章【检索数据】"></a>第四章【检索数据】</h2><p>1.检索单个列，检索结果未排序，顺序随机。</p>
+<pre><code>select 字段名1
+from 表名;</code></pre><p>2.检索多个列</p>
+<pre><code>select 字段名1,字段名2,...,字段名n
+from 表名;</code></pre><p>3.检索所有列</p>
+<pre><code>select *
+from 表名;</code></pre><p>4.检索不同的行</p>
+<pre><code>select distinct 字段名1,字段名2
+from 表名;</code></pre><p><em>注意：distinct关键字作用于所用字段</em><br>5.限制结果<br>a.返回结果不多于n行</p>
+<pre><code>select 字段名1
+from 表名
+limt n;</code></pre><p>b.返回结果从第n行开始的m行</p>
+<pre><code>select 字段名1
+from 表名
+limt n,m;</code></pre><p>6.使用完全限定的表名</p>
+<pre><code>select 表名.字段名
+from 数据库名.表名;</code></pre><h2 id="第五章【排序检索数据】"><a href="#第五章【排序检索数据】" class="headerlink" title="第五章【排序检索数据】"></a>第五章【排序检索数据】</h2><p>1.排序数据</p>
+<pre><code>select 字段名
+from 表名
+order by 字段名;</code></pre><p>2.按多个列排序</p>
+<pre><code>select 字段名1,字段名2
+from 表名
+order by 字段名1,字段名2;</code></pre><p><em>注意：按多个列排序时，排序完全按照所规定的顺序进行，也就是在优先级高的字段出现相同时，才对下一个字段进行排序</em><br>3.指定排序方向</p>
+<pre><code>select  字段名1,字段名2
+from 表名
+order by 字段名1 desc,字段名2 desc;</code></pre><p><em>注意：排序默认升序，在desc的作用下降序。desc只对它前面的字段有作用。</em><br>4.找出最高或最低的值</p>
+<pre><code>select 字段名
+from 表名
+order by 字段名 desc
+limit 1;</code></pre><h2 id="第六章【过滤数据】"><a href="#第六章【过滤数据】" class="headerlink" title="第六章【过滤数据】"></a>第六章【过滤数据】</h2><p>1.使用where子句</p>
+<pre><code>select 字段名1,字段名2
+from 表名
+where 字段名=?;</code></pre><p><em>注意：?表示具体的取值，且order by应该位于where子句之后。</em><br>2.where子句的操作符</p>
+<pre><code>操作符        说明
+=        
+&lt;&gt;           不等于
+!=
+&lt;
+&lt;=
+&gt;
+&gt;=
+between</code></pre><p>3.范围值检查</p>
+<pre><code>select 字段名
+from 表名
+where 字段名 between m and n;</code></pre><p>4.空值检查</p>
+<pre><code>select 字段名
+from 表名
+where 字段名 is null;</code></pre><p><em>注意：null 无值，它与字段包含0，空字符串，只有空格不同。</em></p>
+
       
 
       
@@ -316,30 +386,137 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-数组学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/08/hello-world/">Hello World</a>
+      <a class="article-title" href="/2020/01/09/%E6%95%B0%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">数组学习笔记</a>
     </h1>
   
 
         
-        <a href="/2020/01/08/hello-world/" class="archive-article-date">
-  	<time datetime="2020-01-08T10:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-08</time>
+        <a href="/2020/01/09/%E6%95%B0%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2020-01-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>临时想搭建一个博客来玩玩，于是开始在GitHub上找资源。最终决定使用hexo+node.js搭建个人博客。博客暂时有两个功能，一个是写文章，还有一个是当相册。后期会慢慢的优化我的博客！！</p>
-<p>不得不说GitHub这个东西是真的好，不仅又很多优秀的开源项目可以提供给我们，更重要的是可以白嫖服务器。<br>虽然速度是相当的感人，但是白嫖不香吗？由于GitHub的速度，加载图片很慢很慢。我有选择了七牛服务器来当我博客的图床，选它的原因当然还是因为可以白嫖，只要实名注册就可以免费得10G的空间。哈哈<br>虽然搭建的过程有点小不顺利，但是最后还是搭建起来了。</p>
-<p>这算是我的第一篇文章吧，又markdown的格式写博客真的很不习惯，刚开始只有写这种简单的网页，不过后面会慢慢熟练起来的，哈哈哈。</p>
-<p>感谢GitHub上的大佬提供的yilia主题。还要感谢Codesheep大佬的干货。</p>
+        <a id="more"></a>
+
+<h1 id="第一章-数组定义和访问"><a href="#第一章-数组定义和访问" class="headerlink" title="第一章 数组定义和访问"></a>第一章 数组定义和访问</h1><h2 id="1-1-容器概述"><a href="#1-1-容器概述" class="headerlink" title="1.1 容器概述"></a>1.1 容器概述</h2><h3 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h3><p>现在需要统计某公司员工的工资情况，例如计算平均工资、找到最高工资等。假设该公司有50名员工，用前面所学的知识，程序首先需要声明50个变量来分别记住每位员工的工资，然后在进行操作，这样做会显得很麻烦，而且错误率也会很高。因此我们可以使用容器进行操作。将所有的数据全部存储到一个容器中，统一操作。  </p>
+<h3 id="容器概念"><a href="#容器概念" class="headerlink" title="容器概念"></a>容器概念</h3><p><strong>容器</strong>：是将多个数据存储到一起，每个数据称为该容器的元素。</p>
+<p><strong>生活中的容器</strong>：水杯，衣柜，教室  。</p>
+<h2 id="1-2-数组概念"><a href="#1-2-数组概念" class="headerlink" title="1.2 数组概念"></a>1.2 数组概念</h2><p><strong>数组概念</strong>： 数组就是存储数据长度固定的容器，保证多个数据的数据类型要一致。  </p>
+<h2 id="1-3-数组的定义"><a href="#1-3-数组的定义" class="headerlink" title="1.3 数组的定义"></a>1.3 数组的定义</h2><h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><p><strong>格式：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组存储的数据类型[] 数组名字 = <span class="keyword">new</span> 数组存储的数据类型[长度];</span><br></pre></td></tr></table></figure>
+
+<p><strong>数组定义格式详解：</strong><br>数组存储的数据类型： 创建的数组容器可以存储什么数据类型。<br>[] : 表示数组。<br>数组名字：为定义的数组起个变量名，满足标识符规范，可以使用名字操作数组。<br>new：关键字，创建数组使用的关键字。<br>数组存储的数据类型： 创建的数组容器可以存储什么数据类型。<br>[长度]：数组的长度，表示数组容器中可以存储多少个元素。<br><strong>注意：数组有定长特性，长度一旦指定，不可更改。</strong></p>
+<p><strong>举例：</strong></p>
+<p>定义可以存储3个整数的数组容器，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+
+<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><p><strong>格式：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据类型[] 数组名 = <span class="keyword">new</span> 数据类型[]&#123;元素<span class="number">1</span>,元素<span class="number">2</span>,元素<span class="number">3</span>...&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>举例：</strong><br>定义存储1，2，3，4，5整数的数组容器。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="方式三"><a href="#方式三" class="headerlink" title="方式三"></a>方式三</h3><p><strong>格式：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据类型[] 数组名 = &#123;元素<span class="number">1</span>,元素<span class="number">2</span>,元素<span class="number">3</span>...&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>举例：</strong>  </p>
+<p>定义存储1，2，3，4，5整数的数组容器  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>1.4 数组的访问<br>索引： 每一个存储到数组的元素，都会自动的拥有一个编号，从0开始，这个自动编号称为数组索引<br>(index)，可以通过数组的索引访问到数组中的元素。<br>格式  </p>
+<p><strong>索引：</strong> 每一个存储到数组的元素，都会自动的拥有一个编号，从0开始，这个自动编号称为<strong>数组索引</strong><br><strong>(index)</strong>，可以通过数组的索引访问到数组中的元素。<br><strong>格式：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组名[索引]</span><br></pre></td></tr></table></figure>
+
+<p><strong>数组的长度属性：</strong> 每个数组都具有长度，而且是固定的，Java中赋予了数组的一个属性，可以获取到数组的<br>长度，语句为： 数组名.length ，属性length的执行结果是数组的长度，int类型结果。由次可以推断出，数<br>组的最大索引值为 数组名.length-1 。  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">    <span class="comment">//打印数组的属性，输出结果是5</span></span><br><span class="line">    System.out.println(arr.length);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>索引访问数组中的元素：</strong><br>数组名[索引]=数值，为数组中的元素赋值<br>变量=数组名[索引]，获取出数组中的元素  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//定义存储int类型数组，赋值元素1，2，3，4，5</span></span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">    <span class="comment">//为0索引元素赋值为6</span></span><br><span class="line">    arr[<span class="number">0</span>] = <span class="number">6</span>;</span><br><span class="line">    <span class="comment">//获取数组0索引上的元素</span></span><br><span class="line">    <span class="keyword">int</span> i = arr[<span class="number">0</span>];</span><br><span class="line">    System.out.println(i);</span><br><span class="line">    <span class="comment">//直接输出数组0索引元素</span></span><br><span class="line">    System.out.println(arr[<span class="number">0</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="第二章-数组原理内存图"><a href="#第二章-数组原理内存图" class="headerlink" title="第二章 数组原理内存图"></a>第二章 数组原理内存图</h1><h2 id="2-1-内存概述"><a href="#2-1-内存概述" class="headerlink" title="2.1 内存概述"></a>2.1 内存概述</h2><p>内存是计算机中的重要原件，临时存储区域，作用是运行程序。我们编写的程序是存放在硬盘中的，在硬盘中的程<br>序是不会运行的，必须放进内存中才能运行，运行完毕后会清空内存。Java虚拟机要运行程序，必须要对内存进行空间的分配和管理。  </p>
+<h2 id="2-2-Java虚拟机的内存划分"><a href="#2-2-Java虚拟机的内存划分" class="headerlink" title="2.2 Java虚拟机的内存划分"></a>2.2 Java虚拟机的内存划分</h2><p>为了提高运算效率，就对空间进行了不同区域的划分，因为每一片区域都有特定的处理数据方式和内存管理方式。  </p>
+<p>*<em>JVM的内存划分：  *</em></p>
+<table>
+<thead>
+<tr>
+<th>区域名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>寄存器</td>
+<td>给CPU使用，和我们开发无关。</td>
+</tr>
+<tr>
+<td>本地方法栈</td>
+<td>JVM在使用操作系统功能的时候使用，和我们开发无关。</td>
+</tr>
+<tr>
+<td>方法区</td>
+<td>存储可以运行的class文件。</td>
+</tr>
+<tr>
+<td>堆内存</td>
+<td>存储对象或者数组，new来创建的，都存储在堆内存。</td>
+</tr>
+<tr>
+<td>方法栈</td>
+<td>方法运行时使用的内存，比如main方法运行，进入方法栈中执行。</td>
+</tr>
+</tbody></table>
+<h2 id="2-3-数组在内存中的存储"><a href="#2-3-数组在内存中的存储" class="headerlink" title="2.3 数组在内存中的存储"></a>2.3 数组在内存中的存储</h2><h3 id="一个数组内存图"><a href="#一个数组内存图" class="headerlink" title="一个数组内存图"></a>一个数组内存图</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">    System.out.println(arr);<span class="comment">//[I@5f150435</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上方法执行，输出的结果是[I@5f150435，这个是什么呢？是数组在内存中的地址。new出来的内容，都是在堆<br>内存中存储的，而方法中的变量arr保存的是数组的地址。<strong>输出arr[0]，就会输出arr保存的内存地址中数组中0索引上的元素</strong>  </p>
+<p><img src="https://raw.githubusercontent.com/greathzeze/images-store/master/blogimages/20200227150539.png" alt=""></p>
+<h3 id="两个数组内存图"><a href="#两个数组内存图" class="headerlink" title="两个数组内存图"></a>两个数组内存图</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">    <span class="keyword">int</span>[] arr2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">    System.out.println(arr);</span><br><span class="line">    System.out.println(arr2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/greathzeze/images-store/master/blogimages/20200227150953.png" alt=""></p>
+<h3 id="两个变量指向一个数组"><a href="#两个变量指向一个数组" class="headerlink" title="两个变量指向一个数组"></a>两个变量指向一个数组</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 定义数组，存储3个元素</span></span><br><span class="line">    <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">    <span class="comment">//数组索引进行赋值</span></span><br><span class="line">    arr[<span class="number">0</span>] = <span class="number">5</span>;</span><br><span class="line">    arr[<span class="number">1</span>] = <span class="number">6</span>;</span><br><span class="line">    arr[<span class="number">2</span>] = <span class="number">7</span>;</span><br><span class="line">    <span class="comment">//输出3个索引上的元素值</span></span><br><span class="line">    System.out.println(arr[<span class="number">0</span>]);</span><br><span class="line">    System.out.println(arr[<span class="number">1</span>]);</span><br><span class="line">    System.out.println(arr[<span class="number">2</span>]);</span><br><span class="line">    <span class="comment">//定义数组变量arr2，将arr的地址赋值给arr2</span></span><br><span class="line">    <span class="keyword">int</span>[] arr2 = arr;</span><br><span class="line">    arr2[<span class="number">1</span>] = <span class="number">9</span>;</span><br><span class="line">    System.out.println(arr[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/greathzeze/images-store/master/blogimages/20200227151955.png" alt=""></p>
+<h1 id="第三章-数组的常见操作"><a href="#第三章-数组的常见操作" class="headerlink" title="第三章 数组的常见操作"></a>第三章 数组的常见操作</h1><h2 id="3-1-数组越界异常"><a href="#3-1-数组越界异常" class="headerlink" title="3.1 数组越界异常"></a>3.1 数组越界异常</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">    System.out.println(arr[<span class="number">3</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建数组，赋值3个元素，数组的索引就是0，1，2，没有3索引，因此我们不能访问数组中不存在的索引，程序运<br>行后，将会抛出 <code>ArrayIndexOutOfBoundsExceptio</code>n 数组越界异常。在开发中，数组的越界异常是<strong>不能出现</strong>的，一旦出现了，就必须要修改我们编写的代码。  </p>
+<h2 id="3-2-数组空指针异常"><a href="#3-2-数组空指针异常" class="headerlink" title="3.2 数组空指针异常"></a>3.2 数组空指针异常</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">    arr = <span class="keyword">null</span>;</span><br><span class="line">    System.out.println(arr[<span class="number">0</span>]);</span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
+
+<p><code>arr = null</code> 这行代码，意味着变量arr将不会在保存数组的内存地址，也就不允许再操作数组了，因此运行的时候会抛出 <code>NullPointerException</code> 空指针异常。在开发中，数组的越界异常是<strong>不能出现</strong>的，一旦出现了，就必须要修改我们编写的代码。  </p>
+<p><strong>空指针异常在内存图中的表现</strong>  </p>
+<p><img src="https://raw.githubusercontent.com/greathzeze/images-store/master/blogimages/20200227153240.png" alt=""></p>
+<h2 id="3-3-数组遍历【重点】"><a href="#3-3-数组遍历【重点】" class="headerlink" title="3.3 数组遍历【重点】"></a>3.3 数组遍历【重点】</h2><p><strong>数组遍历：</strong> 就是将数组中的每个元素分别获取出来，就是遍历。遍历也是数组操作中的基石。  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;;</span><br><span class="line">    System.out.println(arr[<span class="number">0</span>]);</span><br><span class="line">    System.out.println(arr[<span class="number">1</span>]);</span><br><span class="line">    System.out.println(arr[<span class="number">2</span>]);</span><br><span class="line">    System.out.println(arr[<span class="number">3</span>]);</span><br><span class="line">    System.out.println(arr[<span class="number">4</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上代码是可以将数组中每个元素全部遍历出来，但是如果数组元素非常多，这种写法肯定不行，因此我们需要改<br>造成循环的写法。数组的索引是 <code>0</code> 到 <code>lenght-1</code> ，可以作为循环的条件出现。  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    	System.out.println(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-4-数组获取最大值元素"><a href="#3-4-数组获取最大值元素" class="headerlink" title="3.4 数组获取最大值元素"></a>3.4 数组获取最大值元素</h2><p><strong>最大值获取：</strong>从数组的所有元素中找出最大值。<br><strong>实现思路：</strong><br>定义变量，保存数组0索引上的元素<br>遍历数组，获取出数组中的每个元素<br>将遍历到的元素和保存数组0索引上值的变量进行比较<br>如果数组元素的值大于了变量的值，变量记录住新的值<br>数组循环遍历结束，变量保存的就是数组中的最大值  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123; <span class="number">5</span>, <span class="number">15</span>, <span class="number">2000</span>, <span class="number">10000</span>, <span class="number">100</span>, <span class="number">4000</span> &#125;;</span><br><span class="line">    <span class="comment">//定义变量，保存数组中0索引的元素</span></span><br><span class="line">    <span class="keyword">int</span> max = arr[<span class="number">0</span>];</span><br><span class="line">    <span class="comment">//遍历数组，取出每个元素</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="comment">//遍历到的元素和变量max比较</span></span><br><span class="line">        <span class="comment">//如果数组元素大于max</span></span><br><span class="line">        <span class="keyword">if</span> (arr[i] &gt; max) &#123;</span><br><span class="line">            <span class="comment">//max记录住大值</span></span><br><span class="line">            max = arr[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    System.out.println(<span class="string">"数组最大值是： "</span> + max);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5-数组反转"><a href="#3-5-数组反转" class="headerlink" title="3.5 数组反转"></a>3.5 数组反转</h2><p><strong>数组的反转：</strong> 数组中的元素颠倒顺序，例如原始数组为1,2,3,4,5，反转后的数组为5,4,3,2,1<br><strong>实现思想：</strong>数组最远端的元素互换位置。<br>实现反转，就需要将数组最远端元素位置交换<br>定义两个变量，保存数组的最小索引和最大索引<br>两个索引上的元素交换位置<br>最小索引++，最大索引–，再次交换位置<br>最小索引超过了最大索引，数组反转操作结束  </p>
+<p><img src="https://raw.githubusercontent.com/greathzeze/images-store/master/blogimages/20200227154508.png" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    循环中定义变量min=0最小索引</span></span><br><span class="line"><span class="comment">    max=arr.length‐1最大索引</span></span><br><span class="line"><span class="comment">    min++,max‐‐</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> min = <span class="number">0</span>, max = arr.length ‐ <span class="number">1</span>; min &lt;= max; min++, max‐‐) &#123;</span><br><span class="line">        <span class="comment">//利用第三方变量完成数组中的元素交换</span></span><br><span class="line">        <span class="keyword">int</span> temp = arr[min];</span><br><span class="line">        arr[min] = arr[max];</span><br><span class="line">        arr[max] = temp;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="comment">// 反转后，遍历数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        System.out.println(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="第四章-数组作为方法参数和返回值"><a href="#第四章-数组作为方法参数和返回值" class="headerlink" title="第四章 数组作为方法参数和返回值"></a>第四章 数组作为方法参数和返回值</h1><h2 id="4-1-数组作为方法参数"><a href="#4-1-数组作为方法参数" class="headerlink" title="4.1 数组作为方法参数"></a>4.1 数组作为方法参数</h2><p>以前的方法中我们学习了方法的参数和返回值，但是使用的都是基本数据类型。那么作为引用类型的数组能否作为<br>方法的参数进行传递呢，当然是可以的。</p>
+<p><strong>数组作为方法参数传递，传递的参数是数组内存的地址</strong>  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123; <span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span> &#125;;</span><br><span class="line">        <span class="comment">//调用方法，传递数组</span></span><br><span class="line">        printArray(arr);</span><br><span class="line">    &#125; /</span><br><span class="line">    *</span><br><span class="line">    创建方法，方法接收数组类型的参数</span><br><span class="line">    进行数组的遍历</span><br><span class="line">    */</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArray</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">           System.out.println(arr[i]);</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/greathzeze/images-store/master/blogimages/20200227154905.png" alt=""></p>
+<h2 id="4-2-数组作为方法返回值"><a href="#4-2-数组作为方法返回值" class="headerlink" title="4.2 数组作为方法返回值"></a>4.2 数组作为方法返回值</h2><p><strong>数组作为方法的返回值，返回的是数组的内存地址</strong>  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//调用方法，接收数组的返回值</span></span><br><span class="line">    <span class="comment">//接收到的是数组的内存地址</span></span><br><span class="line">    <span class="keyword">int</span>[] arr = getArray();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    	System.out.println(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    创建方法，返回值是数组类型</span></span><br><span class="line"><span class="comment">    return返回数组的地址</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] getArray() &#123;</span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123; <span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span> &#125;;</span><br><span class="line">    <span class="comment">//返回数组的地址，返回到调用者</span></span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/greathzeze/images-store/master/blogimages/20200227155820.png" alt=""></p>
+<blockquote>
+<p><strong>总结:</strong><br><strong>方法的参数为基本类型时,传递的是数据值. 方法的参数为引用类型时,传递的是地址值.</strong></p>
+</blockquote>
 
       
 
@@ -353,94 +530,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/08/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hexo-theme-yilia" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/08/31/hexo-theme-yilia/">Hexo主题Yilia</a>
-    </h1>
-  
-
-        
-        <a href="/2014/08/31/hexo-theme-yilia/" class="archive-article-date">
-  	<time datetime="2014-08-31T08:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-08-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">hexo-theme-yilia</a> 是为 <a href="https://github.com/tommy351/hexo" target="_blank" rel="noopener">hexo</a> 2.4+制作的主题。<br>响应式设计，风格简约。</p>
-<p>终于从octopress迁移到hexo。Yilia是自己设计的主题，分享之，有爱请自取。关于主题：</p>
-<ol>
-<li>我喜欢简约。所以标签云，搜索框都拿掉了</li>
-<li>接地气一点。所以用上了jiathis分享，友言评论，以及baidu的cdn</li>
-<li>让大家把注意力放到内容上。这是本主题设计初衷</li>
-<li>主题不支持IE6，7，8。以后也不会</li>
-</ol>
-        
-          <a class="article-more-a" href="/2014/08/31/hexo-theme-yilia/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">主题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
         		</li>
       		
 		</ul>
@@ -450,7 +544,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2014/08/31/hexo-theme-yilia/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/01/09/%E6%95%B0%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
         </p>
       
 
@@ -565,19 +659,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">主题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,6 +668,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
             
             <div class="clearfix"></div>
