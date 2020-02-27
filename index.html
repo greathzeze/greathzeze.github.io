@@ -46,7 +46,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://q3ruon19r.bkt.clouddn.com/images/touxiang.jpg" class="js-avatar">
+			<img src="/images/touxiang.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Greathzeze</a></h1>
@@ -102,7 +102,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://q3ruon19r.bkt.clouddn.com/images/touxiang.jpg" class="js-avatar">
+				<img src="/images/touxiang.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Greathzeze</h1>
@@ -175,141 +175,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre><code>package com.company.test1;
-
-/**
- * 题目描述
- * 在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从
- * 上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
- */
-public class FindFromArray {
-    public static void main(String[] args) {
-        int array[][] = {{1, 2, 4}};
-        int arr[] = {1, 2, 3, 4};
-        System.out.println(findByHalf(4, arr));
-        System.out.println(find1(4, array));
-    }
-
-    //穷举法
-    public static boolean find(int target, int[][] array) {
-        boolean flag = false;
-        for (int i = 0; i &lt; array.length; i++) {
-            for (int j = 0; j &lt; array[i].length; j++) {
-                if (array[i][j] == target) {
-                    flag = true;
-                } else {
-                    flag = false;
-                }
-                if (flag) break;
-            }
-            if (flag) break;
-        }
-        return flag;
-    }
-
-    //折半法
-    public static boolean find1(int target, int[][] array) {
-        boolean flag = false;
-        for (int i = 0; i &lt; array.length; i++) {
-            flag = findByHalf(target, array[i]);
-            if (flag) break;
-        }
-        return flag;
-    }
-
-    //折半查找
-    public static boolean findByHalf(int target, int array[]) {
-
-        int low = 0;
-        int high = array.length - 1;
-        int mid;
-        while (low &lt;= high) {
-            mid = (low + high) / 2;
-            if (target &lt; array[mid]) {
-                high = mid - 1;
-            }
-            if (target &gt; array[mid]) {
-                low = mid + 1;
-            }
-            if (target == array[mid]) {
-                return true;
-            }
-
-        }
-        return false;
-    }
-}</code></pre><hr>
-<hr>
-<pre><code>package com.company.test2;
-
-/**
- * 请实现一个函数，将一个字符串中的每个空格替换成“%20”。
- * 例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
- */
-public class UpdateString {
-    public static void main(String[] args) {
-        StringBuffer str = new StringBuffer(&quot;We Are Happy&quot;);
-        String s = str.toString();
-        String w = s.replace(&quot;W&quot;, &quot;&quot;);
-        System.out.println(w);
-        System.out.println(replaceSpace(str));
-    }
-
-    public static String replaceSpace(StringBuffer str) {
-        String st = str.toString();
-        st = st.replace(&quot; &quot;, &quot;20%&quot;);
-        return st;
-    }
-
-}</code></pre><hr>
-<hr>
-<pre><code>package com.company.test3;
-
-public class ListNode {
-    int val;
-    ListNode next = null;
-
-    ListNode(int val) {
-        this.val = val;
-    }
-}
-package com.company.test3;
-
-import java.util.ArrayList;
-
-/**
- * 题目描述
- * 输入一个链表，按链表从尾到头的顺序返回一个ArrayList。
- */
-public class LinkList {
-    public static void main(String[] args) {
-        ListNode listNode = new ListNode(10);
-        listNode.next = new ListNode(20);
-        ArrayList&lt;Integer&gt; integerArrayList = printListFromTailToHead(listNode);
-        for (int i = 0; i &lt; integerArrayList.size(); i++) {
-            System.out.println(integerArrayList.get(i));
-        }
-    }
-
-    public static ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) {
-        ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();
-        while (listNode != null) {
-            list.add(listNode.val);
-            if (listNode.next == null)
-                break;
-            listNode = listNode.next;
-        }
-        if (!list.isEmpty()) {
-            for (int i = list.size() - 1; i &gt;= 0; i--) {
-                int temp = list.get(i);
-                list.remove(i);
-                list.add(temp);
-            }
-
-        }
-        return list;
-    }
-}</code></pre>
+        <p>这里是我的笔记</p>
+        
+          <a class="article-more-a" href="/2020/02/26/%E5%89%91%E6%8C%87offer%E7%AC%94%E8%AE%B0/#more">more >></a>
+        
       
 
       
