@@ -116,8 +116,8 @@
         var data = res.list[j].arr;
         var liTmpl = "";
         for (var i = 0, len = data.link.length; i < len; i++) {
-          var minSrc = 'http://q3ruon19r.bkt.clouddn.com/min_photos/' + data.link[i];
-          var src = 'http://q3ruon19r.bkt.clouddn.com/photos/' + data.link[i];
+          var minSrc = '/min_photos/' + data.link[i];
+          var src = '/photos/' + data.link[i];
           var type = data.type[i];
           var target = src + (type === 'video' ? '.mp4' : '.jpg');
           
